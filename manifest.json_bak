@@ -1,0 +1,24 @@
+{
+    "name": "Mark active image",
+    "version": "1.11",
+    "description": "Mark image with dashed frame.",
+    "permissions": [
+        "activeTab",
+        "declarativeContent"
+    ],
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "imageMarker.js"
+            ]
+        }
+    ],
+   "manifest_version": 2
+}
