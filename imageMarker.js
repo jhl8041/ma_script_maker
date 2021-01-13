@@ -1,12 +1,4 @@
 
-
-
-
-function sendScriptVar(){
-  console.log('here');
-}
-
-
 var div=document.createElement("div"); 
 document.body.appendChild(div); 
 div.id = "pop";
@@ -14,8 +6,13 @@ div.style.cssText = 'display:none; position:absolute; top:0px; left:0px ;' +
                       'z-index: 999; background-color: #74992e; width: 300px;' +
                       'font-size: 12px';
 
-document.addEventListener("click", function( e ) {
+var script=document.createElement("script"); 
+document.head.appendChild(script); 
+script.innerText = 'function sendScriptVar(str){ alert(str); }';
 
+
+
+document.addEventListener("click", function( e ) {
     var htmlStr = "<table>";
 
     //마우스 커서 위치
@@ -35,12 +32,11 @@ document.addEventListener("click", function( e ) {
     var hasOnclick = e.target.hasAttribute('onclick');
 
 
-
     if (hasId) {
       var idName = e.target.id;
-      var idCnt = document.querySelectorAll('#'+idName).length;  
+      var idCnt = document.querySelectorAll('#'+idName).length; 
 
-      htmlStr +=    "<tr onclick=alert('here')>";
+      htmlStr +=    "<tr onclick=sendScriptVar('var&#32userId&#32=&#32document.getElementById(`"+ idName +"`).value')>";
       htmlStr +=      "<td class='humusjae'>";
       htmlStr +=       "id: #" + idName + " (" + idCnt + ")";
       if (idCnt == 1){
