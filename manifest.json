@@ -10,7 +10,9 @@
     "content_scripts": [
        {   
           "matches": ["http://*/*", "https://*/*"],
-          "css": ["embed.css"]
+          "css": ["embed.css"],
+          "js" : ["embed.js"],
+          "runAt" : "document_end"
        }
     ],
     "browser_action": {

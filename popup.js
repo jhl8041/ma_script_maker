@@ -19,7 +19,7 @@ function restore_options() {
 function checkState(){
 	var state = switch_options();
 	if (state == true){
-		chrome.tabs.executeScript({file: 'imageMarker.js'}); 
+		chrome.tabs.executeScript({file: 'clicker.js'}); 
 	}
 	else{
 		chrome.tabs.getSelected(null, function(tab) {
